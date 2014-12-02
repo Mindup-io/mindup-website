@@ -1,0 +1,35 @@
+{
+  "name": "mindup-public",
+  "version": "0.1.0",
+  "description": "Mindup public server side",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "./node_modules/.bin/istanbul test ./node_modules/.bin/_mocha -- -R spec"
+  },
+  "author": "Arnaud Valensi",
+  "dependencies": {
+    "body-parser": "^1.9.2",
+    "ejs": "^1.0.0",
+    "express": "^4.10.2",
+    "mobile-detect": "^0.4.2",
+    "posix": "^1.0.4",
+    "winston": "^0.8.3"
+  },
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "chai-http": "^1.0.0",
+    "istanbul": "^0.3.2",
+    "mocha": "^2.0.1",
+    "sinon": "^1.11.1"
+  },
+  "jshintConfig": {
+    "unused": "vars",
+    "undef": true,
+    "predef": [
+      "require",
+      "__filename",
+      "__dirname"
+    ]
+  }
+}
