@@ -1,0 +1,110 @@
+#!/bin/sh
+
+### BEGIN INIT INFO
+# Provides: mindup-public
+# Required-Start: $syslog $remote_fs
+# Required-Stop: $syslog $remote_fs
+# Should-Start: $local_fs
+# Should-Stop: $local_fs
+# Default-Start: 2 3 4 5
+# Default-Stop: 0 1 6
+# Short-Description: MindUp Public Server
+### END INIT INFO
+
+# Startup script:
+# $ chmod 755 /path/to/mindup-public
+# $ ln -s /path/to/mindup-public /etc/init.d/mindup-public
+# $ update-rc.d mindup-public defaults
+
+######################################################
+# MODIFY THESE VARIABLES IF YOU NEED
+
+NAME='mindup-public'
+SRC_DIR=/root/server-public
+SRC_NAME=app.js
+APP_ARGS=''
+PIDFILE=/var/run/$NAME.pid
+
+######################################################
+
+export PATH=$PATH:/usr/local/bin
+export NODE_PATH=$NODE_PATH:/usr/lib/node_modules
+
+start() {
+    # We're calling forever directly without using start-stop-daemon for the
+    # sake of simplicity when it comes to environment, and because this way
+    # the script will work whether it is executed directly or via the service
+    # utility.
+    #
+    # The minUptime and spinSleepTime settings stop Forever from thrashing if
+    # the application fails immediately on launch. This is generally necessary to
+    # avoid loading development servers to the point of failure every time
+    # someone makes an error in application initialization code, or bringing down
+    # production servers the same way if a database or other critical service
+    # suddenly becomes inaccessible.
+    #
+    # The pidfile contains the child process pid, not the forever process pid.
+    # We're only using it as a marker for whether or not the process is
+    # running.
+
+    echo "Starting $NAME"
+    daemon -- \
+           forever start --minUptime 5000 --spinSleepTime 2000 \
+           --killSignal SIGINT --pidFile $PIDFILE \
+           --sourceDir $SRC_DIR $SRC_NAME $APP_ARGS
+    RETVAL=$?
+
+    # if [ -f $PIDFILE ]; then
+    #     echo "$NAME is already running"
+    #     RETVAL=1
+    # else
+    #     echo "Starting $NAME"
+    #     daemon -- \
+    #            forever start --minUptime 5000 --spinSleepTime 2000 \
+    #            --sourceDir=$SRC_DIR --pidFile $PIDFILE $SRC_NAME $APP_ARGS
+    #     RETVAL=$?
+    # fi
+}
+
+stop() {
+    if [ -f $PIDFILE ]; then
+        echo "Shutting down $NAME"
+        # sudo -u $NODE_USER -s forever stop $APPLICATION_START
+        forever stop "$SRC_DIR/$SRC_NAME"
+        # Get rid of the pidfile, since Forever won't do that.
+        rm -f $PIDFILE
+        RETVAL=$?
+    else
+        echo "$NAME is not running."
+        RETVAL=1
+    fi
+}
+
+restart() {
+    if [ -f $PIDFILE ]; then
+        echo "Restarting $NAME"
+        # sudo -u $NODE_USER -s forever restart $APPLICATION_START
+        forever restart "$SRC_DIR/$SRC_NAME"
+        RETVAL=$?
+    else
+        start
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    restart)
+        restart
+        ;;
+    *)
+        echo "Usage: /etc/init.d/$NAME {start|stop}"
+        exit 1
+        ;;
+esac
+
+exit $RETVAL
