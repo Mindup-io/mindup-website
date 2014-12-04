@@ -24,10 +24,14 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
 process.on('SIGINT', function () {
-    logger.info('stopping MindUp :\'(');
+    logger.info('stopping MindUp (SIGINT) :\'(');
     process.exit(0);
 });
 
+process.on( 'SIGTERM', function() {
+    logger.info('stopping MindUp (SIGTERM) :\'(');
+    process.exit(0);
+});
 
 // ===========================================================================
 // MIDDLEWARE
