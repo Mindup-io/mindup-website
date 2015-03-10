@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <title>MindUp - Don't be quiet</title>
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/landing.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <script>
+      var shiftWindow = function() { scrollBy(0, -74) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() { 
+        if (window.location.hash) shiftWindow();
+      }
+    </script>
+  </head>
+
+  <body onload="load()">
+
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=364716317046631&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" id="hamburger" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"><img alt="" src="img/hibou-128.gif" height="64" width="64"></a>
+            <ul class="nav navbar-nav mindup-large-screen hidden-xs">
+              <li class="navbar-left"><a href="#">MindUp</a></li>
+            </ul>
+            <a class="navbar-brand mindup-small-screen visible-xs" href="#"><span>MindUp</span></a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#useCase">Cas d'utilisation</a>
+              </li>
+              <li>
+                <a href="#download">Télécharger</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="description">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12" style="height:480px;">
+            <h1><span>Anonyme. Massive. Incoercible.<br>Messagerie instantanée de proximité</span></h1>
+            <h2>Dites ce que vous voulez anonymement<br>aux gens qui vous entourent.</h2>
+            <a href="#download" class="btn red-btn btn-lg bump" style="position:absolute;bottom:40px;right:20px;margin:0">Installer MindUp</a>
+          </div>
+        </div>
+      </div> 
+    </section>
+
+    <section id="download">
+      <h2 class="sr-only">Télécharger MindUp</h2>
+      <div class="container">
+        <div class="row row-list">
+          <div class="col-xs-4"><a href="#"><img src="img/google.png" width="180" height="58" alt=""></a></div>
+          <div class="col-xs-4"><a href="#"><img src="img/apple.png" width="180" height="58" alt=""></a></div>
+          <div class="col-xs-4"><a href="#"><img src="img/windows.png" width="180" alt="" height="58"></a></div>
+        </div> 
+      </div>
+    </section> 
+
+    <section id="showroom">
+      <div class="container">
+        <h2 class="sr-only">Showroom</h2>
+        <div class="row">
+          <div class="col-lg-12">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="useCase" class="carousel slide">
+      <h2 class="sr-only">Cas d'utilisation</h2>
+      <ol class="carousel-indicators">
+        <li data-target="#useCase" data-slide-to="0" class="active"></li>
+        <li data-target="#useCase" data-slide-to="1"></li>
+        <li data-target="#useCase" data-slide-to="2"></li>
+        <li data-target="#useCase" data-slide-to="3"></li>
+        <li data-target="#useCase" data-slide-to="4"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="fill" style="background-image:url('img/uc1.jpg'); background-position:left top;"></div>
+          <div class="carousel-caption">
+            <h2>Diffusez vos idées</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc2.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Partagez vos passions</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc3.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Amusez-vous</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc4.jpg'); background-position:left top;"></div>
+          <div class="carousel-caption">
+            <h2>Organisez-vous</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc5.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Rassemblez-vous</h2>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#useCase" data-slide="prev">
+        <span class="icon-prev"></span>
+      </a>
+      <a class="right carousel-control" href="#useCase" data-slide="next">
+        <span class="icon-next"></span>
+      </a>
+    </section>
+
+    <section id="newsletter">
+      <div class="container">
+        <form class="form-inline row">
+          <div class="col-md-4">
+            <h2>Aidez-nous<span class="hidden-xs hidden-sm"> :</span></h2>
+          </div>
+          <div class="form-group col-md-4">
+            <label class="sr-only" for="newsletter-email">Votre adresse email</label>
+            <input type="email" class="form-control input-lg input-block-level" required="" id="newsletter-email" placeholder="Email">
+          </div>
+          <div class="col-md-4">
+            <button type="submit" class="btn btn-primary red-btn input-lg">Devenez bêta-testeur !</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <section id="social">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6" id="facebook-widget">
+            <div class=fb-border>
+              <div class="fb-like-box" data-href="https://www.facebook.com/MindUpOfficial" data-width="400" data-height="496" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false"></div>
+            </div>
+          </div>
+          <div class="col-md-6" id="twitter-widget">
+            <a class="twitter-timeline"
+               href="https://twitter.com/twitterdev"
+               data-widget-id="575310403883962368"
+               data-theme=""
+               data-show-replies="false"
+               data-link-color="#E74C3C"
+               data-related="twitterapi,twitter"
+               data-aria-polite="assertive"
+               data-border-color="#a9a9a9"
+               height="502">
+              Tweets by @twitterdev
+            </a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contactez-nous</h2>
+        <form role="form">
+          <div class="form-group">
+            <label for="contact-usr" class="sr-only">Name:</label>
+            <input type="text" class="form-control input-lg" required="" id="contact-usr" placeholder="Nom">
+          </div>
+          <div class="form-group">
+            <label for="contact-email" class="sr-only">Email:</label>
+            <input type="email" class="form-control input-lg" required="" id="contact-email" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <label for="contact-comment" class="sr-only">Comment:</label>
+            <textarea class="form-control input-lg" rows="5" required="" id="contact-comment" placeholder="Votre message"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-default btn-lg red-btn">Envoyer !</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <nav class="navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="#">Copyright &copy; MindUp 2014</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="policy.html">Politique de confidentialité</a></li>
+            <li><a href="#/">Contact</a></li>
+          </ul>
+        </nav> 
+      </div>
+    </footer>
+
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script>
+      $('.carousel').carousel({
+        interval: 3500
+      })
+
+      $(document).on('click','.navbar-collapse.in',function(e) {
+        if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+          $(this).collapse('hide');
+        }
+      });
+
+      $('.navbar-nav a').click(function(e) {
+        var dest = $(this).attr('href');
+        if (dest === window.location.hash) e.preventDefault();
+      });
+    </script>
+  </body>
+</html>

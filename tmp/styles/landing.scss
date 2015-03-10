@@ -1,0 +1,468 @@
+/*-----------------------------------*\
+>  Variables
+\*-----------------------------------*/
+
+$blue           : #34495E;
+$blue-dark      : #2C3E50;
+$blue-darker    : #1A2530;
+$red            : #E74C3C;
+$red-dark       : #CF4436;
+$red-darker     : #af2e24;
+$grey-light     : #ecf0f1;
+$grey           : #a9a9a9;
+$grey-dark      : #444444;
+
+$bgDefault      : $red;
+$bgHighlight    : $red;
+$colDefault     : white;
+$colHighlight   : white;
+
+$header-height  : 74px;
+$footer-height  : 50px;
+$carousel-height : 480px;
+
+/*-----------------------------------*\
+>  Miscelaneous
+\*-----------------------------------*/
+
+html, body {
+    height: 100%;
+    font-family: 'Quicksand', sans-serif;
+    background-color: $red;
+}
+
+body {
+    padding-top: $header-height;
+}
+
+section, footer {
+    background-color: $grey-light;  
+}
+
+.blue-btn {
+    color: white; 
+    background-color: $blue; 
+    border-color: $blue-darker; 
+} 
+
+.blue-btn:hover, .blue-btn:focus, .blue-btn:active, .blue-btn.active, .open .dropdown-toggle.blue-btn { 
+    color: white; 
+    background-color: $blue-dark; 
+    border-color: $blue-darker; 
+} 
+
+.blue-btn:active, .blue-btn.active, .open .dropdown-toggle.blue-btn { 
+    background-image: none; 
+} 
+
+.blue-btn.disabled, .blue-btn[disabled], fieldset[disabled] .blue-btn, .blue-btn.disabled:hover, .blue-btn[disabled]:hover, fieldset[disabled] .blue-btn:hover, .blue-btn.disabled:focus, .blue-btn[disabled]:focus, fieldset[disabled] .blue-btn:focus, .blue-btn.disabled:active, .blue-btn[disabled]:active, fieldset[disabled] .blue-btn:active, .blue-btn.disabled.active, .blue-btn[disabled].active, fieldset[disabled] .blue-btn.active { 
+    background-color: $blue; 
+    border-color: $blue-darker; 
+} 
+
+.blue-btn .badge { 
+    color: $blue; 
+    background-color: white; 
+}
+
+.red-btn {
+    color: white; 
+    background-color: $red; 
+    border-color: $red-darker; 
+} 
+
+.red-btn:hover, .red-btn:focus, .red-btn:active, .red-btn.active, .open .dropdown-toggle.red-btn { 
+    color: white; 
+    background-color: $red-dark; 
+    border-color: $red-darker; 
+} 
+
+.red-btn:active, .red-btn.active, .open .dropdown-toggle.red-btn { 
+    background-image: none; 
+} 
+
+.red-btn.disabled, .red-btn[disabled], fieldset[disabled] .red-btn, .red-btn.disabled:hover, .red-btn[disabled]:hover, fieldset[disabled] .red-btn:hover, .red-btn.disabled:focus, .red-btn[disabled]:focus, fieldset[disabled] .red-btn:focus, .red-btn.disabled:active, .red-btn[disabled]:active, fieldset[disabled] .red-btn:active, .red-btn.disabled.active, .red-btn[disabled].active, fieldset[disabled] .red-btn.active { 
+    background-color: $red; 
+    border-color: $red-darker; 
+} 
+
+.red-btn .badge { 
+    color: $red; 
+    background-color: white; 
+}
+
+/*-----------------------------------*\
+>  Header
+\*-----------------------------------*/
+
+header .navbar-inner {
+    min-height: 0px;
+}
+
+.navbar-brand, header .navbar-nav li a {
+    line-height: $header-height;
+    height: $header-height;
+    padding-top: 0;
+    font-size: 1.3em;
+}
+
+header .mindup-large-screen .navbar-left a{
+    padding-left: 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+header .mindup-small-screen {
+    text-align: center;
+    display: table;
+    table-layout: fixed;
+    float:none;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: -11px;
+}
+
+header .mindup-small-screen span{
+    margin-left: -11px;
+}
+
+@media (max-width: 767px) {
+    header .navbar-default .navbar-collapse, header .navbar-default .navbar-form {
+        background-color: $blue;
+        box-shadow:none;
+    }
+    header .navbar-nav li a {
+        line-height: $header-height/2;
+        height: $header-height/2;
+        padding-top: 0;
+        font-size: 1.3em;
+    }
+    header .navbar-default .navbar-collapse, header .navbar-default .navbar-form {
+        border-color: $blue !important;
+    }
+    header #hamburger{
+        padding-top: 20px;
+        padding-bottom: 20px;
+        margin-top: 9px;
+    }
+}
+
+.navbar-brand {
+    padding-top: 11px;
+}
+
+.navbar-default {
+    background: rgba($red, 0.95);
+    border-color: $bgHighlight;
+    .navbar-brand {
+        color: $colDefault;
+        &:hover, &:focus { 
+            color: $colHighlight; }}
+    .navbar-text {
+        color: $colDefault; }
+    .navbar-nav {
+        > li {
+            > a {
+                color: $colDefault;
+                &:hover,  &:focus {
+                    color: $colHighlight; }}}
+        > .active {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}
+        > .open {
+            > a, > a:hover, > a:focus {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}}
+    .navbar-toggle {
+        border-color: $bgHighlight;
+        &:hover, &:focus {
+            background-color: $bgHighlight; }
+        .icon-bar {
+            background-color: $colDefault; }}
+    .navbar-collapse,
+    .navbar-form {
+        border-color: $colDefault; }
+    .navbar-link {
+        color: $colDefault;
+        &:hover {
+            color: $colHighlight; }}}
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu {
+        > li > a {
+            color: $colDefault;
+            &:hover, &:focus {
+                color: $colHighlight; }}
+        > .active {
+            > a, > a:hover, > a:focus, {
+                color: $colHighlight;
+                background-color: $bgHighlight; }}}
+}
+
+/*-----------------------------------*\
+>  Description
+\*-----------------------------------*/
+
+#description{
+    background-image: url("../img/map.jpg");
+    background-position: center center;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color: $grey-light; 
+    height: 480px;
+}
+
+#description span{
+    //background-color: black;
+    //    padding: 10px;
+    //    opacity: .5;
+}
+
+@media (max-width: 992px) {
+    description{
+        //    background-size: 1920px 480px;
+    }
+}
+
+#description h1{
+    text-align: right;
+    color: white;
+    font-weight: bold;
+    //  text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 0 $red, 
+        2px 2px 0 $red;
+}
+
+#description h2{
+    text-align: right;
+    color: white;
+    font-size: 1.5em;
+    font-weight: bold;
+    //    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+    text-shadow: 1px 1px 0 $red, 
+        2px 2px 0 $red;
+}
+
+#description p{
+    text-align: right;
+    color: white;
+    //    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+}
+
+/*-----------------------------------*\
+>  Download
+\*-----------------------------------*/
+
+#download {
+    text-align: center;
+    overflow-x: hidden;
+}
+
+#download img {
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+/*-----------------------------------*\
+>  Carousel
+\*-----------------------------------*/
+
+#useCase .carousel {
+    height: $carousel-height;
+}
+
+#useCase .carousel-inner .item, #useCase .carousel-inner .active,  #useCase .carousel-inner .carousel-inner {
+    height: $carousel-height;
+}
+
+#useCase .fill {
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+
+#useCase .carousel-caption {
+    top: auto;
+    bottom: $carousel-height / 3;
+}
+
+#useCase .carousel-caption h2{
+    font-size: 4em;
+}
+
+@media (max-width: 992px) {
+    #useCase .carousel {
+        height: $carousel-height / 2;
+    }
+    #useCase .carousel-inner .item, #useCase .carousel-inner .active,  #useCase .carousel-inner .carousel-inner {
+        height: $carousel-height / 2;
+    }
+    #useCase .carousel-caption {
+        top: auto;
+        bottom: $carousel-height / 6;
+    }
+    #useCase .carousel-caption h2 {
+        font-size: 2em;
+    }
+}
+
+/*-----------------------------------*\
+>  Contact
+\*-----------------------------------*/
+
+#contact textarea {
+    resize: vertical;
+}
+
+#contact h2{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#contact form button {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-bottom: 40px;
+
+}
+
+/*-----------------------------------*\
+>  Newsletter
+\*-----------------------------------*/
+
+#newsletter {
+    background-color: $blue;
+    color: white;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+#newsletter h2{
+    margin: 0;
+    line-height: 46px;
+}
+
+#newsletter .col-md-4 {
+    margin-top: 20px;
+}
+
+#newsletter .col-md-4:first-child {
+    height: 46px;
+    text-align: right;
+}
+
+#newsletter .col-md-4:last-child {
+    text-align: left;
+}
+
+#newsletter input{
+    width: 100% !important;
+}
+
+@media (max-width: 992px) {
+    #newsletter .col-md-4 {
+        text-align: center !important;
+    }
+}
+
+/*-----------------------------------*\
+>  Showroom
+\*-----------------------------------*/
+
+#showroom{
+    background-color: $blue;
+}
+
+#showroom .container{
+    background-image: url("../img/showroom.png");
+    background-position: center center;
+    background-size: 992px;
+    background-repeat: no-repeat;
+    height: 713px + 50px;
+}
+
+@media (max-width: 992px) {
+    #showroom .container{
+        background-size: 496px;
+        background-repeat: no-repeat;
+        height: 357px + 25px;
+    }
+}
+
+/*-----------------------------------*\
+>  Social
+\*-----------------------------------*/
+
+#social{
+    //  background-color: grey;
+}
+
+#social #facebook-widget, #social #twitter-widget{
+    padding: 15px;
+    margin: 0;
+}
+
+#social .fb-border{
+    border: 1px solid $grey;
+    border-radius: 5px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    background-color: white;
+}
+
+#social .fb_iframe_widget, #social .fb_iframe_widget span, #social .fb_iframe_widget span iframe[style] {
+    width: 100% !important;
+}
+
+#social .fb-like-box, #social .twitter-timeline{
+    width: 100% !important;  
+}
+
+#social .fb-like-box{
+    background-color: white;
+}
+
+/*-----------------------------------*\
+>  Footer
+\*-----------------------------------*/
+
+footer{
+    background-color: $red;
+    color:white;
+}
+
+footer .navbar{
+    margin: 0;
+    border: none;
+}
+
+
+footer .navbar-nav li a {
+    line-height: $footer-height;
+    height: $footer-height;
+    padding-top: 0;
+    color:white;
+}
+
+
+footer .navbar-nav li a:hover {
+    background-color: $red-dark;
+}
+
+/*-----------------------------------*\
+>  Policy
+\*-----------------------------------*/
+
+#policy p {
+    font-size: 16px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#policy p a, #policy p a:hover {
+    color: $red;
+}
