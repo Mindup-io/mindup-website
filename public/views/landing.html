@@ -218,24 +218,26 @@
     <section id="contact">
       <div class="container">
         <h2>Contactez-nous</h2>
-        <form role="form">
+        <form data-bind="submit: sendContactMsg" role="form">
           <div class="form-group">
             <label for="contact-usr" class="sr-only">Name:</label>
-            <input type="text" class="form-control input-lg" required="" id="contact-usr" placeholder="Nom (facultatif)">
+            <input data-bind="value: name" type="text" class="form-control input-lg" id="contact-usr" placeholder="Nom (facultatif)">
           </div>
           <div class="form-group">
             <label for="contact-email" class="sr-only">Email:</label>
-            <input type="email" class="form-control input-lg" required="" id="contact-email" placeholder="Email (facultatif)">
+            <input data-bind="value: email" type="email" class="form-control input-lg" id="contact-email" placeholder="Email (facultatif)">
           </div>
           <div class="form-group">
             <label for="contact-comment" class="sr-only">Comment:</label>
-            <textarea class="form-control input-lg" rows="5" required="" id="contact-comment" placeholder="Votre message"></textarea>
+            <textarea data-bind="textInput: msg" class="form-control input-lg" rows="5" required id="contact-comment" placeholder="Votre message"></textarea>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-default btn-lg red-btn">Envoyer !</button>
           </div>
         </form>
       </div>
+
+      <input data-bind="value: msg">
     </section>
 
     <footer>
@@ -260,12 +262,66 @@
     <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
     <script type="text/javascript">
       /************************************************************************
-      * Main
+      * Contact form
+      ************************************************************************/
+
+      function ajaxPost(url, data, cb) {
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: data,
+          contentType: 'application/json;charset=UTF-8',
+          success: function (response) {
+            cb(null, response);
+          },
+          error: function (response) {
+            log.error('[serverManager] Unable to get the page: ' + url);
+            cb(response);
+          }
+        });
+      }
+
+      function ContactMsgViewModel() {
+        var self = this;
+
+        self.name = ko.observable();
+        self.email = ko.observable();
+        self.msg = ko.observable();
+
+        self.isValid = function () {
+          return self.msg().length;
+        }
+
+        /* contact msg from */
+        self.sendContactMsg = function () {
+          console.log(ko.toJSON(self, null, '\t'));
+
+          if (self.isValid()) {
+            ajaxPost('/v1/contact-msg', ko.toJSON(self, null, '\t'), function (err, rsp) {
+              if (err) {
+                return console.log('Can\'t send message: ' + err);
+              }
+              console.log('Message sent.');
+            });
+
+            self.clearFrom();
+          }
+        }
+
+        self.clearFrom = function () {
+          self.name('');
+          self.email('');
+          self.msg('');
+        }
+      }
+      ko.applyBindings(new ContactMsgViewModel(), document.getElementById("contact"));
+
+      /************************************************************************
+      * Download buttons
       ************************************************************************/
 
       function LandingViewModel() {
         var self = this;
-
         self.userOs = '<%= os %>';
 
         self.isOtherMobileOrNavigator = function () {
@@ -294,7 +350,7 @@
                  self.isOtherMobileOrNavigator();
         });
       }
-      ko.applyBindings(new LandingViewModel());
+      ko.applyBindings(new LandingViewModel(), document.getElementById("download"));
 
       /************************************************************************
        * Misc
