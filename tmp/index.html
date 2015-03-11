@@ -9,6 +9,7 @@
     <link href="styles/bootstrap.min.css" rel="stylesheet">
     <link href="styles/landing.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/font-awesome-4.3.0/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -86,9 +87,9 @@
       <h2 class="sr-only">Télécharger MindUp</h2>
       <div class="container">
         <div class="row row-list">
-          <div class="col-xs-4"><a href="#"><img src="img/google.png" width="180" height="58" alt=""></a></div>
-          <div class="col-xs-4"><a href="#"><img src="img/apple.png" width="180" height="58" alt=""></a></div>
-          <div class="col-xs-4"><a href="#"><img src="img/windows.png" width="180" alt="" height="58"></a></div>
+          <div class="col-xs-4"><a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!"><img src="img/google.png" width="180" height="58" alt=""></a></div>
+          <div class="col-xs-4"><a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!"><img src="img/apple.png" width="180" height="58" alt=""></a></div>
+          <div class="col-xs-4"><a href="#" data-toggle="tooltip" data-placement="left" title="Prochainement&nbsp;!"><img src="img/windows.png" width="180" alt="" height="58"></a></div>
         </div> 
       </div>
     </section> 
@@ -173,11 +174,13 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6" id="facebook-widget">
+            <h2>Suivez-nous sur Facebook</h2>
             <div class=fb-border>
               <div class="fb-like-box" data-href="https://www.facebook.com/MindUpOfficial" data-width="400" data-height="496" data-colorscheme="light" data-show-faces="true" data-header="true" data-stream="true" data-show-border="false"></div>
             </div>
           </div>
           <div class="col-md-6" id="twitter-widget">
+            <h2>Suivez-nous sur Twitter</h2>
             <a class="twitter-timeline"
                href="https://twitter.com/twitterdev"
                data-widget-id="575310403883962368"
@@ -202,11 +205,11 @@
         <form role="form">
           <div class="form-group">
             <label for="contact-usr" class="sr-only">Name:</label>
-            <input type="text" class="form-control input-lg" required="" id="contact-usr" placeholder="Nom">
+            <input type="text" class="form-control input-lg" required="" id="contact-usr" placeholder="Nom (facultatif)">
           </div>
           <div class="form-group">
             <label for="contact-email" class="sr-only">Email:</label>
-            <input type="email" class="form-control input-lg" required="" id="contact-email" placeholder="Email">
+            <input type="email" class="form-control input-lg" required="" id="contact-email" placeholder="Email (facultatif)">
           </div>
           <div class="form-group">
             <label for="contact-comment" class="sr-only">Comment:</label>
@@ -223,11 +226,14 @@
       <div class="container">
         <nav class="navbar">
           <ul class="nav navbar-nav">
-            <li><a href="#">Copyright &copy; MindUp 2014</a></li>
+            <li>Copyright &copy; MindUp 2014</li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://www.facebook.com/MindUpOfficial" data-toggle="tooltip" data-placement="top" title="Suivez-nous sur Facebook !"><i class="fa fa-facebook fa-lg"></i></a></li>
+            <li><a href="https://twitter.com/MindUpOfficial" data-toggle="tooltip" data-placement="top" title="Suivez-nous sur Twitter !"><i class="fa fa-twitter fa-lg"></i></a></li>
+            <li><a href="#">Télécharger</a></li>
             <li><a href="policy.html">Politique de confidentialité</a></li>
-            <li><a href="#/">Contact</a></li>
+            <li><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#99;&#111;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x69;&#x6e;&#x64;&#117;&#112;&#x2e;&#105;&#111;" data-toggle="tooltip" data-placement="top" title="Coucou&nbsp;:)">Contact</a></li>
           </ul>
         </nav> 
       </div>
@@ -250,6 +256,9 @@
         var dest = $(this).attr('href');
         if (dest === window.location.hash) e.preventDefault();
       });
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+      })
     </script>
   </body>
 </html>

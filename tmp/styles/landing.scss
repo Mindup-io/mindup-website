@@ -35,7 +35,7 @@ body {
     padding-top: $header-height;
 }
 
-section, footer {
+section {
     background-color: $grey-light;  
 }
 
@@ -314,6 +314,10 @@ header .mindup-small-screen span{
 >  Contact
 \*-----------------------------------*/
 
+#contact{
+    background-color: $blue;
+}
+
 #contact textarea {
     resize: vertical;
 }
@@ -322,13 +326,13 @@ header .mindup-small-screen span{
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    color: $grey-light;
 }
 
 #contact form button {
     padding-left: 50px;
     padding-right: 50px;
     margin-bottom: 40px;
-
 }
 
 /*-----------------------------------*\
@@ -399,7 +403,12 @@ header .mindup-small-screen span{
 \*-----------------------------------*/
 
 #social{
-    //  background-color: grey;
+    //      background-color: $red;
+}
+
+#social h2{
+    text-align: center;
+    margin-top: 5px;
 }
 
 #social #facebook-widget, #social #twitter-widget{
@@ -441,17 +450,26 @@ footer .navbar{
     border: none;
 }
 
-
-footer .navbar-nav li a {
+footer .navbar-nav li, footer .navbar-nav li a {
     line-height: $footer-height;
     height: $footer-height;
     padding-top: 0;
     color:white;
 }
 
-
-footer .navbar-nav li a:hover {
+footer .navbar-nav li a:hover, 
+footer .navbar-nav li a:active, 
+footer .navbar-nav li a:visited, 
+footer .navbar-nav li a.mailto:hover,
+footer .navbar-nav li a.mailto:active,
+footer .navbar-nav li a.mailto:visited{
     background-color: $red-dark;
+}
+
+@media (max-width: 767px) {
+    footer .navbar-nav li{
+        text-align: center;
+    }
 }
 
 /*-----------------------------------*\
