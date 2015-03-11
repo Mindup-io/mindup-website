@@ -18,8 +18,8 @@ logger.info('starting MindUp public server ;)');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.use('/img', express.static(path.join(__dirname, 'public', 'img')));
-app.set('views', path.join(__dirname, 'public', 'views'));
+app.use(express.static(__dirname + '/public/static'));
+app.set('views', __dirname + '/public/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
 
@@ -52,6 +52,13 @@ function getDownloadPage(req, res, next) {
     default:
         res.render('index.html');
     }
+}
+
+function getLandingPage(req, res, next) {
+    var md = new MobileDetect(req.headers['user-agent']);
+
+    res.render('landing.html', { os: md.os() });
+    // res.render('landing.html');
 }
 
 function logMdw(req, res, next) {
@@ -88,6 +95,7 @@ var router = express.Router();
 
 router.use(logMdw);
 router.get('/', getDownloadPage);
+router.get('/landing', getLandingPage);
 router.use(basicErrorHandler);
 router.get('*', handleError404);
 router.post('*', handleError404);

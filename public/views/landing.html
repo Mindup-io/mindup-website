@@ -16,10 +16,10 @@
 <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
 <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 <![endif]-->
-    <script>
+    <script type="text/javascript">
       var shiftWindow = function() { scrollBy(0, -74) };
       window.addEventListener("hashchange", shiftWindow);
-      function load() { 
+      function load() {
         if (window.location.hash) shiftWindow();
       }
     </script>
@@ -80,19 +80,35 @@
             <a href="#download" class="btn red-btn btn-lg bump" style="position:absolute;bottom:40px;right:20px;margin:0">Installer MindUp</a>
           </div>
         </div>
-      </div> 
+      </div>
     </section>
 
     <section id="download">
       <h2 class="sr-only">Télécharger MindUp</h2>
       <div class="container">
         <div class="row row-list">
-          <div class="col-xs-4"><a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!"><img src="img/google.png" width="180" height="58" alt=""></a></div>
-          <div class="col-xs-4"><a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!"><img src="img/apple.png" width="180" height="58" alt=""></a></div>
-          <div class="col-xs-4"><a href="#" data-toggle="tooltip" data-placement="left" title="Prochainement&nbsp;!"><img src="img/windows.png" width="180" alt="" height="58"></a></div>
-        </div> 
+
+          <div data-bind="visible: isAndroid" class="col-xs-4">
+            <a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!">
+              <img src="img/google.png" width="180" height="58" alt="">
+            </a>
+          </div>
+
+          <div data-bind="visible: isIos" class="col-xs-4">
+            <a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!">
+              <img src="img/apple.png" width="180" height="58" alt="">
+            </a>
+          </div>
+
+          <div data-bind="visible: isWindowsPhone" class="col-xs-4">
+            <a href="#" data-toggle="tooltip" data-placement="left" title="Prochainement&nbsp;!">
+              <img src="img/windows.png" width="180" alt="" height="58">
+            </a>
+          </div>
+
+        </div>
       </div>
-    </section> 
+    </section>
 
     <section id="showroom">
       <div class="container">
@@ -235,13 +251,55 @@
             <li><a href="policy.html">Politique de confidentialité</a></li>
             <li><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#99;&#111;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x69;&#x6e;&#x64;&#117;&#112;&#x2e;&#105;&#111;" data-toggle="tooltip" data-placement="top" title="Coucou&nbsp;:)">Contact</a></li>
           </ul>
-        </nav> 
+        </nav>
       </div>
     </footer>
 
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+      /************************************************************************
+      * Main
+      ************************************************************************/
+
+      function LandingViewModel() {
+        var self = this;
+
+        self.userOs = '<%= os %>';
+
+        self.isOtherMobileOrNavigator = function () {
+          return self.userOs === 'null' ||
+                 (self.userOs !== 'AndroidOS' &&
+                  self.userOs !== 'iOS'       &&
+                  self.userOs.substr(0, 7) !== 'Windows')
+        };
+
+        // If is android, navigator or other mobile.
+        self.isAndroid = ko.computed(function () {
+          return self.userOs === 'AndroidOS' ||
+                 self.isOtherMobileOrNavigator();
+        });
+
+        // If is ios, navigator or other mobile.
+        self.isIos = ko.computed(function () {
+          return self.userOs === 'iOS'  ||
+                 self.isOtherMobileOrNavigator();
+        });
+
+        // If is windowsPhone, navigator or other mobile.
+        self.isWindowsPhone = ko.computed(function () {
+          return self.userOs === 'WindowsMobileOS' ||
+                 self.userOs === 'WindowsPhoneOS'  ||
+                 self.isOtherMobileOrNavigator();
+        });
+      }
+      ko.applyBindings(new LandingViewModel());
+
+      /************************************************************************
+       * Misc
+       ************************************************************************/
+
       $('.carousel').carousel({
         interval: 3500
       })
