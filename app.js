@@ -12,6 +12,21 @@ var bodyParser = require('body-parser');
 var logger = require('./logger.js')(__filename);
 var MobileDetect = require('mobile-detect');
 var mail = require('./mail.js');
+// var mongoskin = require('mongoskin');
+var request = require('request');
+
+var API_BASEURL = 'http://api0.mindup.io';
+// var API_BASEURL = 'http://localhost:5000';
+
+// var mongo = {
+//     user: 'mindup_server',
+//     pass: 'BVm0YTOT4we1UBlwHzxNisotKHMoopuMj2yPFRbfBi0='
+// };
+
+// var db = mongoskin.db(
+//     'mongodb://' + mongo.user + ':' + mongo.pass + '@localhost/mindup',
+//     {safe:true}
+// );
 
 logger.info('starting MindUp public server ;)');
 
@@ -43,8 +58,14 @@ function getDownloadPage(req, res, next) {
 
     switch (md.os()) {
     case 'AndroidOS':
-        // res.send('AndroidOS');
-        res.download('public/release/MindUp_last.apk');
+        request(API_BASEURL + '/v1/event/apkdl', function (error, response, body) {
+            if (error || response.statusCode != 200) {
+              logger.error('Can\'t get ' + API_BASEURL + '/v1/event/apkdl: ' +
+                           error);
+            }
+        });
+        res.status(200);
+        res.download('public/static/release/MindUp_last.apk');
         break;
     case 'iOS':
         res.send('iOS');
