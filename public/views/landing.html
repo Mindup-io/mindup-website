@@ -171,13 +171,15 @@
 
     <section id="newsletter">
       <div class="container">
-        <form class="form-inline row">
+        <form class="form-inline row"
+              action="//mindup.us10.list-manage.com/subscribe/post?u=ce96d3b55588e6f384ca9f909&amp;id=8c4f9cb192" method="post"
+              name="0.1_mc-embedded-subscribe-form" target="_blank">
           <div class="col-md-4">
             <h2>Aidez-nous<span class="hidden-xs hidden-sm"> :</span></h2>
           </div>
           <div class="form-group col-md-4">
             <label class="sr-only" for="newsletter-email">Votre adresse email</label>
-            <input type="email" class="form-control input-lg input-block-level" required="" id="newsletter-email" placeholder="Email">
+            <input type="email" name="EMAIL" class="form-control input-lg input-block-level" required="" id="newsletter-email" placeholder="Email">
           </div>
           <div class="col-md-4">
             <button type="submit" class="btn btn-primary red-btn input-lg">Devenez bêta-testeur !</button>
@@ -236,8 +238,6 @@
           </div>
         </form>
       </div>
-
-      <input data-bind="value: msg">
     </section>
 
     <footer>
@@ -261,118 +261,138 @@
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
     <script type="text/javascript">
-      /************************************************************************
-      * Contact form
-      ************************************************************************/
+      $(function() {
+        /************************************************************************
+        * Contact form
+        ************************************************************************/
 
-      function ajaxPost(url, data, cb) {
-        $.ajax({
-          type: "POST",
-          url: url,
-          data: data,
-          contentType: 'application/json;charset=UTF-8',
-          success: function (response) {
-            cb(null, response);
-          },
-          error: function (response) {
-            log.error('[serverManager] Unable to get the page: ' + url);
-            cb(response);
+        function ajaxPost(url, data, cb) {
+          $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            contentType: 'application/json;charset=UTF-8',
+            success: function (response) {
+              cb(null, response);
+            },
+            error: function (response) {
+              log.error('[serverManager] Unable to get the page: ' + url);
+              cb(response);
+            }
+          });
+        }
+
+        function ContactMsgViewModel() {
+          var self = this;
+
+          self.name = ko.observable();
+          self.email = ko.observable();
+          self.msg = ko.observable();
+
+          self.isValid = function () {
+            return self.msg().length;
+          }
+
+          /* contact msg from */
+          self.sendContactMsg = function () {
+            console.log(ko.toJSON(self, null, '\t'));
+
+            if (self.isValid()) {
+              ajaxPost('/v1/contact-msg', ko.toJSON(self, null, '\t'), function (err, rsp) {
+                if (err) {
+                  return console.log('Can\'t send message: ' + err);
+                }
+                console.log('Message sent.');
+              });
+
+              self.clearFrom();
+            }
+          }
+
+          self.clearFrom = function () {
+            self.name('');
+            self.email('');
+            self.msg('');
+          }
+        }
+        ko.applyBindings(new ContactMsgViewModel(), document.getElementById("contact"));
+
+        /************************************************************************
+        * Download buttons
+        ************************************************************************/
+
+        function LandingViewModel() {
+          var self = this;
+          self.userOs = '<%= os %>';
+
+          self.isOtherMobileOrNavigator = function () {
+            return self.userOs === 'null' ||
+            (self.userOs !== 'AndroidOS' &&
+            self.userOs !== 'iOS'       &&
+            self.userOs.substr(0, 7) !== 'Windows')
+          };
+
+          // If is android, navigator or other mobile.
+          self.isAndroid = ko.computed(function () {
+            return self.userOs === 'AndroidOS' ||
+            self.isOtherMobileOrNavigator();
+          });
+
+          // If is ios, navigator or other mobile.
+          self.isIos = ko.computed(function () {
+            return self.userOs === 'iOS'  ||
+            self.isOtherMobileOrNavigator();
+          });
+
+          // If is windowsPhone, navigator or other mobile.
+          self.isWindowsPhone = ko.computed(function () {
+            return self.userOs === 'WindowsMobileOS' ||
+            self.userOs === 'WindowsPhoneOS'  ||
+            self.isOtherMobileOrNavigator();
+          });
+        }
+        ko.applyBindings(new LandingViewModel(), document.getElementById("download"));
+
+        /************************************************************************
+        * Misc
+        ************************************************************************/
+
+        $('.carousel').carousel({
+          interval: 3500
+        })
+
+        $(document).on('click','.navbar-collapse.in',function(e) {
+          if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+            $(this).collapse('hide');
           }
         });
-      }
 
-      function ContactMsgViewModel() {
-        var self = this;
-
-        self.name = ko.observable();
-        self.email = ko.observable();
-        self.msg = ko.observable();
-
-        self.isValid = function () {
-          return self.msg().length;
-        }
-
-        /* contact msg from */
-        self.sendContactMsg = function () {
-          console.log(ko.toJSON(self, null, '\t'));
-
-          if (self.isValid()) {
-            ajaxPost('/v1/contact-msg', ko.toJSON(self, null, '\t'), function (err, rsp) {
-              if (err) {
-                return console.log('Can\'t send message: ' + err);
-              }
-              console.log('Message sent.');
-            });
-
-            self.clearFrom();
-          }
-        }
-
-        self.clearFrom = function () {
-          self.name('');
-          self.email('');
-          self.msg('');
-        }
-      }
-      ko.applyBindings(new ContactMsgViewModel(), document.getElementById("contact"));
-
-      /************************************************************************
-      * Download buttons
-      ************************************************************************/
-
-      function LandingViewModel() {
-        var self = this;
-        self.userOs = '<%= os %>';
-
-        self.isOtherMobileOrNavigator = function () {
-          return self.userOs === 'null' ||
-                 (self.userOs !== 'AndroidOS' &&
-                  self.userOs !== 'iOS'       &&
-                  self.userOs.substr(0, 7) !== 'Windows')
-        };
-
-        // If is android, navigator or other mobile.
-        self.isAndroid = ko.computed(function () {
-          return self.userOs === 'AndroidOS' ||
-                 self.isOtherMobileOrNavigator();
+        $('.navbar-nav a').click(function(e) {
+          var dest = $(this).attr('href');
+          if (dest === window.location.hash) e.preventDefault();
         });
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
 
-        // If is ios, navigator or other mobile.
-        self.isIos = ko.computed(function () {
-          return self.userOs === 'iOS'  ||
-                 self.isOtherMobileOrNavigator();
+        /************************************************************************
+        * FB
+        ************************************************************************/
+
+        $('.fb-like-box').attr('data-width', $('#facebook-widget').width());
+
+        $(window).resize(function(){
+          console.log('resize');
+
+          var newSize = $('#facebook-widget').width();
+          $('.fb-like-box').attr('data-width', newSize);
+
+          $('.fb-like-box iframe').attr('src', function(i, val) {
+            return val.replace(/&container_width=\d+/, '&container_width=' + (newSize - 2))
+                      .replace(/&width=\d+/, '&width=' + newSize);
+          });
         });
-
-        // If is windowsPhone, navigator or other mobile.
-        self.isWindowsPhone = ko.computed(function () {
-          return self.userOs === 'WindowsMobileOS' ||
-                 self.userOs === 'WindowsPhoneOS'  ||
-                 self.isOtherMobileOrNavigator();
-        });
-      }
-      ko.applyBindings(new LandingViewModel(), document.getElementById("download"));
-
-      /************************************************************************
-       * Misc
-       ************************************************************************/
-
-      $('.carousel').carousel({
-        interval: 3500
-      })
-
-      $(document).on('click','.navbar-collapse.in',function(e) {
-        if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
-          $(this).collapse('hide');
-        }
       });
-
-      $('.navbar-nav a').click(function(e) {
-        var dest = $(this).attr('href');
-        if (dest === window.location.hash) e.preventDefault();
-      });
-      $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-      })
     </script>
   </body>
 </html>
