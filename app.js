@@ -53,6 +53,18 @@ process.on( 'SIGTERM', function() {
 // ===========================================================================
 
 
+function getRoot(req, res, next) {
+    var host = req.get('host');
+
+    logger.info('host: ' + host);
+
+    if (host === 'app.mindup.io') {
+        getDownloadPage(req, res, next);
+    } else {
+        getLandingPage(req, res, next);
+    }
+}
+
 function getDownloadPage(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
 
@@ -141,8 +153,8 @@ function handleError404(req, res, next) {
 var router = express.Router();
 
 router.use(logMdw);
-router.get('/', getDownloadPage);
-router.get('/landing', getLandingPage);
+router.get('/', getRoot);
+router.get('/download', getDownloadPage);
 router.post('/v1/contact-msg', postContact);
 router.use(basicErrorHandler);
 router.get('*', handleError404);
