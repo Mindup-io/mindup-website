@@ -86,27 +86,25 @@
     <section id="download">
       <h2 class="sr-only">Télécharger MindUp</h2>
       <div class="container">
-        <div class="row row-list">
-
-          <div data-bind="visible: isAndroid" class="col-xs-4">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!">
-              <img src="img/google.png" width="180" height="58" alt="">
-            </a>
-          </div>
-
-          <div data-bind="visible: isIos" class="col-xs-4">
-            <a href="#" data-toggle="tooltip" data-placement="right" title="Prochainement&nbsp;!">
-              <img src="img/apple.png" width="180" height="58" alt="">
-            </a>
-          </div>
-
-          <div data-bind="visible: isWindowsPhone" class="col-xs-4">
-            <a href="#" data-toggle="tooltip" data-placement="left" title="Prochainement&nbsp;!">
-              <img src="img/windows.png" width="180" alt="" height="58">
-            </a>
-          </div>
-
-        </div>
+        <nav class="navbar">
+          <ul class="nav nav-pills nav-justified nav-stacked">
+            <li data-bind="visible: isAndroid">
+              <a>
+                <img src="img/google.png" width="180" height="58" alt="" tabindex="0" data-toggle="popover" data-trigger="focus" title="Disponible prochainement !" data-placement="bottom" data-content="MindUp n'est pas encore sur les stores, mais vous pouvez vous inscrire comme bêta-testeur ! Regardez un peu plus bas :)">
+              </a>
+            </li>
+            <li data-bind="visible: isIos">
+              <a>
+                <img src="img/apple.png" width="180" height="58" alt="" tabindex="0" data-toggle="popover" data-trigger="focus" title="Disponible prochainement !" data-placement="bottom" data-content="MindUp n'est pas encore sur les stores, mais vous pouvez vous inscrire comme bêta-testeur ! Regardez un peu plus bas :)">
+              </a>
+            </li>
+            <li data-bind="visible: isWindowsPhone">
+              <a>
+                <img src="img/windows.png" width="180" alt="" height="58" tabindex="0" data-toggle="popover" data-trigger="focus" title="Disponible prochainement !" data-placement="bottom" data-content="MindUp n'est pas encore sur les stores, mais vous pouvez vous inscrire comme bêta-testeur ! Regardez un peu plus bas :)">
+              </a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </section>
 
@@ -327,28 +325,28 @@
 
           self.isOtherMobileOrNavigator = function () {
             return self.userOs === 'null' ||
-            (self.userOs !== 'AndroidOS' &&
-            self.userOs !== 'iOS'       &&
-            self.userOs.substr(0, 7) !== 'Windows')
+              (self.userOs !== 'AndroidOS' &&
+               self.userOs !== 'iOS'       &&
+               self.userOs.substr(0, 7) !== 'Windows')
           };
 
           // If is android, navigator or other mobile.
           self.isAndroid = ko.computed(function () {
             return self.userOs === 'AndroidOS' ||
-            self.isOtherMobileOrNavigator();
+              self.isOtherMobileOrNavigator();
           });
 
           // If is ios, navigator or other mobile.
           self.isIos = ko.computed(function () {
             return self.userOs === 'iOS'  ||
-            self.isOtherMobileOrNavigator();
+              self.isOtherMobileOrNavigator();
           });
 
           // If is windowsPhone, navigator or other mobile.
           self.isWindowsPhone = ko.computed(function () {
             return self.userOs === 'WindowsMobileOS' ||
-            self.userOs === 'WindowsPhoneOS'  ||
-            self.isOtherMobileOrNavigator();
+              self.userOs === 'WindowsPhoneOS'  ||
+              self.isOtherMobileOrNavigator();
           });
         }
         ko.applyBindings(new LandingViewModel(), document.getElementById("download"));
@@ -371,8 +369,13 @@
           var dest = $(this).attr('href');
           if (dest === window.location.hash) e.preventDefault();
         });
+
         $(function () {
           $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(function () {
+          $('[data-toggle="popover"]').popover()
         })
 
         /************************************************************************
@@ -389,7 +392,7 @@
 
           $('.fb-like-box iframe').attr('src', function(i, val) {
             return val.replace(/&container_width=\d+/, '&container_width=' + (newSize - 2))
-                      .replace(/&width=\d+/, '&width=' + newSize);
+            .replace(/&width=\d+/, '&width=' + newSize);
           });
         });
       });

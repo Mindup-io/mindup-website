@@ -254,13 +254,30 @@ header .mindup-small-screen span{
 \*-----------------------------------*/
 
 #download {
-    text-align: center;
-    overflow-x: hidden;
+    padding-top: 10px
 }
 
-#download img {
-    margin-bottom: 10px;
-    margin-top: 10px;
+#download nav{
+    margin: 0;
+}
+
+#download li a {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 10px;
+    cursor: pointer;
+}
+
+#download  :focus {
+    outline:none;
+}
+
+#download ::-moz-focus-inner {
+    border:0;
+}
+
+#download li a:hover, #download li a:active, #download li a:visited {
+    background-color: transparent;
 }
 
 /*-----------------------------------*\
@@ -387,14 +404,14 @@ header .mindup-small-screen span{
     background-position: center center;
     background-size: 992px;
     background-repeat: no-repeat;
-    height: 713px + 50px;
+    height: 713px + 150px;
 }
 
 @media (max-width: 992px) {
     #showroom .container{
         background-size: 496px;
         background-repeat: no-repeat;
-        height: 357px + 25px;
+        height: 357px + 75px;
     }
 }
 
