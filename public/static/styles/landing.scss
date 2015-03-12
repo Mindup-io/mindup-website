@@ -212,12 +212,6 @@ header .mindup-small-screen span{
     height: 480px;
 }
 
-#description span{
-    //background-color: black;
-    //    padding: 10px;
-    //    opacity: .5;
-}
-
 @media (max-width: 992px) {
     description{
         //    background-size: 1920px 480px;
@@ -228,9 +222,12 @@ header .mindup-small-screen span{
     text-align: right;
     color: white;
     font-weight: bold;
-    //  text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
-    text-shadow: 1px 1px 0 $red, 
-        2px 2px 0 $red;
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+    background-color: rgba($blue, 0.85);
+    display:inline-block;
+    float: right;
+    padding: 10px;
+    margin-bottom: 10px;
 }
 
 #description h2{
@@ -238,15 +235,12 @@ header .mindup-small-screen span{
     color: white;
     font-size: 1.5em;
     font-weight: bold;
-    //    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
-    text-shadow: 1px 1px 0 $red, 
-        2px 2px 0 $red;
-}
-
-#description p{
-    text-align: right;
-    color: white;
-    //    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+    text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
+    background-color: rgba($blue, 0.85);
+    display:inline-block;
+    float: right;clear: both;
+    padding: 10px;
+    margin-top: 0;
 }
 
 /*-----------------------------------*\
