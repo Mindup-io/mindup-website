@@ -106,7 +106,7 @@ header .navbar-inner {
     font-size: 1.3em;
 }
 
-header .mindup-large-screen .navbar-left a{
+header .mindup-large-screen .navbar-left a {
     padding-left: 0;
     text-transform: uppercase;
     font-weight: bold;
@@ -122,7 +122,7 @@ header .mindup-small-screen {
     margin-top: -11px;
 }
 
-header .mindup-small-screen span{
+header .mindup-small-screen span {
     margin-left: -11px;
 }
 
@@ -140,7 +140,7 @@ header .mindup-small-screen span{
     header .navbar-default .navbar-collapse, header .navbar-default .navbar-form {
         border-color: $blue !important;
     }
-    header #hamburger{
+    header #hamburger {
         padding-top: 20px;
         padding-bottom: 20px;
         margin-top: 9px;
@@ -203,7 +203,7 @@ header .mindup-small-screen span{
 >  Description
 \*-----------------------------------*/
 
-#description{
+#description {
     background-image: url("../img/map.jpg");
     background-position: center center;
     background-size:cover;
@@ -212,13 +212,7 @@ header .mindup-small-screen span{
     height: 480px;
 }
 
-@media (max-width: 992px) {
-    description{
-        //    background-size: 1920px 480px;
-    }
-}
-
-#description h1{
+#description h1 {
     text-align: right;
     color: white;
     font-weight: bold;
@@ -230,7 +224,7 @@ header .mindup-small-screen span{
     margin-bottom: 10px;
 }
 
-#description h2{
+#description h2 {
     text-align: right;
     color: white;
     font-size: 1.5em;
@@ -238,9 +232,16 @@ header .mindup-small-screen span{
     text-shadow: 0px 4px 3px rgba(0,0,0,0.4);
     background-color: rgba($blue, 0.85);
     display:inline-block;
-    float: right;clear: both;
+    float: right;
+    clear: both;
     padding: 10px;
     margin-top: 0;
+}
+
+@media (max-width: 767px) {
+    #description h1, #description h2 {
+        width: 100%;
+    }
 }
 
 /*-----------------------------------*\
@@ -251,7 +252,7 @@ header .mindup-small-screen span{
     padding-top: 10px
 }
 
-#download nav{
+#download nav {
     margin: 0;
 }
 
@@ -262,7 +263,7 @@ header .mindup-small-screen span{
     cursor: pointer;
 }
 
-#download  :focus {
+#download :focus {
     outline:none;
 }
 
@@ -272,6 +273,30 @@ header .mindup-small-screen span{
 
 #download li a:hover, #download li a:active, #download li a:visited {
     background-color: transparent;
+}
+
+/*-----------------------------------*\
+>  Showroom
+\*-----------------------------------*/
+
+#showroom {
+    background-color: $blue;
+}
+
+#showroom .container {
+    background-image: url("../img/showroom.png");
+    background-position: center center;
+    background-size: 992px;
+    background-repeat: no-repeat;
+    height: 713px + 150px;
+}
+
+@media (max-width: 992px) {
+    #showroom .container {
+        background-size: 496px;
+        background-repeat: no-repeat;
+        height: 357px + 75px;
+    }
 }
 
 /*-----------------------------------*\
@@ -301,7 +326,7 @@ header .mindup-small-screen span{
     bottom: $carousel-height / 3;
 }
 
-#useCase .carousel-caption h2{
+#useCase .carousel-caption h2 {
     font-size: 4em;
 }
 
@@ -322,90 +347,37 @@ header .mindup-small-screen span{
 }
 
 /*-----------------------------------*\
->  Contact
+>  Bêta-testeurs
 \*-----------------------------------*/
 
-#contact{
-    background-color: $blue;
-}
-
-#contact textarea {
-    resize: vertical;
-}
-
-#contact h2{
-    text-align: center;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    color: $grey-light;
-}
-
-#contact form button {
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-bottom: 40px;
-}
-
-/*-----------------------------------*\
->  Newsletter
-\*-----------------------------------*/
-
-#newsletter {
+#beta-testeurs {
     background-color: $blue;
     color: white;
     text-align: center;
     padding-bottom: 20px;
+    padding-top: 20px;
 }
 
-#newsletter h2{
-    margin: 0;
-    line-height: 46px;
-}
-
-#newsletter .col-md-4 {
-    margin-top: 20px;
-}
-
-#newsletter .col-md-4:first-child {
-    height: 46px;
-    text-align: right;
-}
-
-#newsletter .col-md-4:last-child {
+#beta-testeurs .col-md-4 {
     text-align: left;
 }
 
-#newsletter input{
-    width: 100% !important;
+#beta-testeurs h2 {
+    margin: 0;
+    line-height: 46px;
+    text-align: right;
 }
 
 @media (max-width: 992px) {
-    #newsletter .col-md-4 {
+    #beta-testeurs {
         text-align: center !important;
+        padding-top: 5px;
     }
-}
-
-/*-----------------------------------*\
->  Showroom
-\*-----------------------------------*/
-
-#showroom{
-    background-color: $blue;
-}
-
-#showroom .container{
-    background-image: url("../img/showroom.png");
-    background-position: center center;
-    background-size: 992px;
-    background-repeat: no-repeat;
-    height: 713px + 150px;
-}
-
-@media (max-width: 992px) {
-    #showroom .container{
-        background-size: 496px;
-        background-repeat: no-repeat;
-        height: 357px + 75px;
+    #beta-testeurs .col-md-8 h2 {
+        text-align: center;
+    }
+    #beta-testeurs .col-md-4 {
+        text-align: center;
     }
 }
 
@@ -413,21 +385,22 @@ header .mindup-small-screen span{
 >  Social
 \*-----------------------------------*/
 
-#social{
-    //      background-color: $red;
+#social {
+    padding-bottom: 20px;
 }
 
-#social h2{
+#social h2 {
     text-align: center;
-    margin-top: 5px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
-#social #facebook-widget, #social #twitter-widget{
+#social #facebook-widget, #social #twitter-widget {
     padding: 15px;
     margin: 0;
 }
 
-#social .fb-border{
+#social .fb-border {
     border: 1px solid $grey;
     border-radius: 5px;
     padding-top: 2px;
@@ -439,24 +412,60 @@ header .mindup-small-screen span{
     width: 100% !important;
 }
 
-#social .fb-like-box, #social .twitter-timeline{
+#social .fb-like-box, #social .twitter-timeline {
     width: 100% !important;  
 }
 
-#social .fb-like-box{
+#social .fb-like-box {
     background-color: white;
+}
+
+@media (max-width: 992px) {
+    #social h2 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+    #social #facebook-widget {
+        padding-bottom: 0;
+    }
+}
+
+/*-----------------------------------*\
+>  Contact
+\*-----------------------------------*/
+
+#contact {
+    background-color: $blue;
+}
+
+#contact textarea {
+    resize: vertical;
+}
+
+#contact h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: $grey-light;
+}
+
+#contact form button {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-top: 10px;
+    margin-bottom: 25px;
 }
 
 /*-----------------------------------*\
 >  Footer
 \*-----------------------------------*/
 
-footer{
+footer {
     background-color: $red;
     color:white;
 }
 
-footer .navbar{
+footer .navbar {
     margin: 0;
     border: none;
 }
@@ -468,17 +477,12 @@ footer .navbar-nav li, footer .navbar-nav li a {
     color:white;
 }
 
-footer .navbar-nav li a:hover, 
-footer .navbar-nav li a:active, 
-footer .navbar-nav li a:visited, 
-footer .navbar-nav li a.mailto:hover,
-footer .navbar-nav li a.mailto:active,
-footer .navbar-nav li a.mailto:visited{
+footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-nav li a:visited, footer .navbar-nav li a.mailto:hover,footer .navbar-nav li a.mailto:active,footer .navbar-nav li a.mailto:visited {
     background-color: $red-dark;
 }
 
 @media (max-width: 767px) {
-    footer .navbar-nav li{
+    footer .navbar-nav li {
         text-align: center;
     }
 }
