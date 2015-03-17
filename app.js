@@ -94,6 +94,10 @@ function getLandingPage(req, res, next) {
     // res.render('landing.html');
 }
 
+function getPolicy(req, res, next) {
+    res.render('policy.html');
+}
+
 function postContact(req, res, next) {
     // POST args
     var name = req.body.name,
@@ -154,6 +158,7 @@ var router = express.Router();
 
 router.use(logMdw);
 router.get('/', getRoot);
+router.get('/policy', getPolicy);
 router.get('/download', getDownloadPage);
 router.post('/v1/contact-msg', postContact);
 router.use(basicErrorHandler);
