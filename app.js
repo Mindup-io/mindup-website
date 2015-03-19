@@ -14,6 +14,7 @@ var MobileDetect = require('mobile-detect');
 var mail = require('./mail.js');
 // var mongoskin = require('mongoskin');
 var request = require('request');
+var evt = require('../common/node/recEvent.js');
 
 var API_BASEURL = 'http://api0.mindup.io';
 // var API_BASEURL = 'http://localhost:5000';
@@ -65,6 +66,7 @@ function getRoot(req, res, next) {
     }
 }
 
+// TODO: maybe deprecated
 function getDownloadPage(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
 
@@ -87,11 +89,23 @@ function getDownloadPage(req, res, next) {
     }
 }
 
+function getStore(req, res, next) {
+    // GET args
+    var platform = req.params.platform;
+
+    if (platform === 'android') {
+        evt.record('serverPublic', 'gotToPlayStore');
+
+        return res.redirect(
+            'https://play.google.com/store/apps/details?id=io.mindup.mindup');
+    }
+    return handleError404(req, res, next);
+}
+
 function getLandingPage(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
 
     res.render('landing.html', { os: md.os() });
-    // res.render('landing.html');
 }
 
 function getPolicy(req, res, next) {
@@ -160,6 +174,7 @@ router.use(logMdw);
 router.get('/', getRoot);
 router.get('/policy', getPolicy);
 router.get('/download', getDownloadPage);
+router.get('/store/:platform', getStore);
 router.post('/v1/contact-msg', postContact);
 router.use(basicErrorHandler);
 router.get('*', handleError404);
