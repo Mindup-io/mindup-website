@@ -87,6 +87,8 @@ function getDownloadPage(req, res, next) {
     default:
         res.render('index.html');
     }
+
+    evt.record('serverPublic', 'getDownloadPage');
 }
 
 function getStore(req, res, next) {
@@ -106,6 +108,7 @@ function getLandingPage(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
 
     res.render('landing.html', { os: md.os() });
+    evt.record('serverPublic', 'getLandingPage');
 }
 
 function getPolicy(req, res, next) {
@@ -136,6 +139,16 @@ function postContact(req, res, next) {
 
     mail.send(mailMsg, mailOptions);
     res.send();
+
+    evt.record(
+	'serverPublic',
+	'postContact',
+	{
+	    name: ((name) ? name : 'Unknown'),
+	    email: ((email) ? email : 'Unknown'),
+	    msg: msg
+	}
+    );
 }
 
 function logMdw(req, res, next) {
