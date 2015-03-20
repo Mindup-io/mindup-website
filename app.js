@@ -96,7 +96,7 @@ function getStore(req, res, next) {
     var platform = req.params.platform;
 
     if (platform === 'android') {
-        evt.record('serverPublic', 'gotToPlayStore');
+        evt.record('serverPublic', 'goToPlayStore');
 
         return res.redirect(
             'https://play.google.com/store/apps/details?id=io.mindup.mindup');
