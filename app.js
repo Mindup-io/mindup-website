@@ -13,10 +13,10 @@ var logger = require('./logger.js')(__filename);
 var MobileDetect = require('mobile-detect');
 var mail = require('./mail.js');
 // var mongoskin = require('mongoskin');
-var request = require('request');
 var evt = require('../common/node/recEvent.js');
+var getReqIp = require('../common/node/expressHelper.js').reqIp;
 
-var API_BASEURL = 'http://api0.mindup.io';
+// var API_BASEURL = 'http://api0.mindup.io';
 // var API_BASEURL = 'http://localhost:5000';
 
 // var mongo = {
@@ -56,10 +56,11 @@ process.on( 'SIGTERM', function() {
 
 function getRoot(req, res, next) {
     var host = req.get('host');
+    var md = new MobileDetect(req.headers['user-agent']);
 
     logger.info('host: ' + host);
 
-    if (host === 'app.mindup.io') {
+    if (host === 'app.mindup.io' && md.os() === 'AndroidOS') {
         getDownloadPage(req, res, next);
     } else {
         getLandingPage(req, res, next);
@@ -72,23 +73,17 @@ function getDownloadPage(req, res, next) {
 
     switch (md.os()) {
     case 'AndroidOS':
-        request(API_BASEURL + '/v1/event/apkdl', function (error, response, body) {
-            if (error || response.statusCode != 200) {
-              logger.error('Can\'t get ' + API_BASEURL + '/v1/event/apkdl: ' +
-                           error);
-            }
-        });
+        evt.record('serverPublic', 'apkDownloaded', { fromIp: getReqIp(req) });
         res.status(200);
         res.download('public/static/release/MindUp_last.apk');
         break;
-    case 'iOS':
-        res.send('iOS');
-        break;
+    // case 'iOS':
+    //     res.send('iOS');
+    //     break;
     default:
-        res.render('index.html');
+        res.redirect('/');
+        evt.record('serverPublic', 'getDownloadPage', { fromIp: getReqIp(req) });
     }
-
-    evt.record('serverPublic', 'getDownloadPage');
 }
 
 function getStore(req, res, next) {
@@ -96,7 +91,13 @@ function getStore(req, res, next) {
     var platform = req.params.platform;
 
     if (platform === 'android') {
-        evt.record('serverPublic', 'goToPlayStore');
+        evt.record(
+            'serverPublic', 'goToStore',
+            {
+                fromIp: getReqIp(req),
+                store: 'android'
+            }
+        );
 
         return res.redirect(
             'https://play.google.com/store/apps/details?id=io.mindup.mindup');
@@ -108,7 +109,7 @@ function getLandingPage(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
 
     res.render('landing.html', { os: md.os() });
-    evt.record('serverPublic', 'getLandingPage');
+    evt.record('serverPublic', 'getLandingPage', { fromIp: getReqIp(req) });
 }
 
 function getPolicy(req, res, next) {
@@ -146,7 +147,8 @@ function postContact(req, res, next) {
 	{
 	    name: ((name) ? name : 'Unknown'),
 	    email: ((email) ? email : 'Unknown'),
-	    msg: msg
+	    msg: msg,
+        fromIp: getReqIp(req)
 	}
     );
 }
