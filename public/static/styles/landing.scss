@@ -504,172 +504,96 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
 >  Review
 \*-----------------------------------*/
 
+#review {
+    background-color: $red;
+    height: 350px; //    <-- c'est à lui qu'il faut fixer la tailler !
+    margin-top: 25px;
+}
 
-
-
-
-
-
-.carousel-control.left,.carousel-control.right  {
+#review .carousel-control.left, #review .carousel-control.right  {
     background:none;
     width:25px;
 }
 
-.carousel-control.left {
-    left:-25px;
+#review .carousel-control.left {
+    //    left:-25px;
 }
 
-.carousel-control.right {
-    right:-25px;
+#review .carousel-control.right {
+    //    right:-25px;
 }
 
-.broun-block {
-    background-color: $red;
-    padding-bottom: 34px;
+#review .broun-block {  
+    //    padding-bottom: 34px;
 }
 
-.block-text {
+#review .block-text {
     background-color: $red-dark;
     border-radius: 5px;
-//    box-shadow: 0 3px 0 #2c2222;
     color: white;
     font-size: 14px;
-    margin-top: 27px;
     padding: 15px 18px;
 }
 
-.block-text a {
+#review .block-text a {
     color: white;
     font-size: 25px;
     font-weight: bold;
     line-height: 21px;
     text-decoration: none;
-//    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
-.mark {
+#review .mark {
     padding: 12px 0;
     background:none;
 }
 
-.block-text p {
+#review .block-text p {
     color: $grey-light;
-//    font-family: Georgia;
     font-style: italic;
     line-height: 20px;
 }
 
-.sprite {
-        }
-
-.sprite-i-triangle {
-    background-position: 0 -1298px;
-    height: 44px;
-    width: 50px;
-}
-
-.block-text ins {
-    bottom: -44px;
-    left: 50%;
-    margin-left: -60px;
-}
-
-.block {
-    display: block;
-}
-
-.zmin {
+#review .zmin {
     z-index: 1;
 }
 
-.ab {
-    position: absolute;
-}
-
-.person-text {
+#review .person-text {
     padding: 10px 0 0;
-//    text-align: center;
     z-index: 2;
-//      background-color: pink;
 }
 
-.person-text a {
+#review .person-text a {
     margin-left: 10px;
     color: $grey-light;
-//    display: block;
     font-size: 14px;
     margin-top: 3px;
     text-decoration: underline;
-  
 }
 
-.person-text i {
+#review .person-text i {
     color: #fff;
-//    font-family: Georgia;
     font-size: 13px;
 }
 
-.rel {
+#review .rel {
     position: relative;
 }
 
-
-
-.carousel, .carousel-inner > .item {
-  display: run-in;
-  width: 100%;
-  height: auto!important;
+#review .carousel, #review .carousel-inner > .item {
+    display: run-in;
+    width: 100%;
+    height: auto!important;
 }
 
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
-  display: block;
-  height: auto;
-  max-width: 100%;
-  line-height: 1;
+#review .carousel-inner > .item > img,
+#review .carousel-inner > .item > a > img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
 }
 
-.carousel-container {
+#review .carousel-container {
     margin-left:0;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
