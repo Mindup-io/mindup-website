@@ -36,59 +36,59 @@ body {
 }
 
 section {
-    background-color: $grey-light;  
+    background-color: $grey-light;
 }
 
 .blue-btn {
-    color: white; 
-    background-color: $blue; 
-    border-color: $blue-darker; 
-} 
+    color: white;
+    background-color: $blue;
+    border-color: $blue-darker;
+}
 
-.blue-btn:hover, .blue-btn:focus, .blue-btn:active, .blue-btn.active, .open .dropdown-toggle.blue-btn { 
-    color: white; 
-    background-color: $blue-dark; 
-    border-color: $blue-darker; 
-} 
+.blue-btn:hover, .blue-btn:focus, .blue-btn:active, .blue-btn.active, .open .dropdown-toggle.blue-btn {
+    color: white;
+    background-color: $blue-dark;
+    border-color: $blue-darker;
+}
 
-.blue-btn:active, .blue-btn.active, .open .dropdown-toggle.blue-btn { 
-    background-image: none; 
-} 
+.blue-btn:active, .blue-btn.active, .open .dropdown-toggle.blue-btn {
+    background-image: none;
+}
 
-.blue-btn.disabled, .blue-btn[disabled], fieldset[disabled] .blue-btn, .blue-btn.disabled:hover, .blue-btn[disabled]:hover, fieldset[disabled] .blue-btn:hover, .blue-btn.disabled:focus, .blue-btn[disabled]:focus, fieldset[disabled] .blue-btn:focus, .blue-btn.disabled:active, .blue-btn[disabled]:active, fieldset[disabled] .blue-btn:active, .blue-btn.disabled.active, .blue-btn[disabled].active, fieldset[disabled] .blue-btn.active { 
-    background-color: $blue; 
-    border-color: $blue-darker; 
-} 
+.blue-btn.disabled, .blue-btn[disabled], fieldset[disabled] .blue-btn, .blue-btn.disabled:hover, .blue-btn[disabled]:hover, fieldset[disabled] .blue-btn:hover, .blue-btn.disabled:focus, .blue-btn[disabled]:focus, fieldset[disabled] .blue-btn:focus, .blue-btn.disabled:active, .blue-btn[disabled]:active, fieldset[disabled] .blue-btn:active, .blue-btn.disabled.active, .blue-btn[disabled].active, fieldset[disabled] .blue-btn.active {
+    background-color: $blue;
+    border-color: $blue-darker;
+}
 
-.blue-btn .badge { 
-    color: $blue; 
-    background-color: white; 
+.blue-btn .badge {
+    color: $blue;
+    background-color: white;
 }
 
 .red-btn {
-    color: white; 
-    background-color: $red; 
-    border-color: $red-darker; 
-} 
+    color: white;
+    background-color: $red;
+    border-color: $red-darker;
+}
 
-.red-btn:hover, .red-btn:focus, .red-btn:active, .red-btn.active, .open .dropdown-toggle.red-btn { 
-    color: white; 
-    background-color: $red-dark; 
-    border-color: $red-darker; 
-} 
+.red-btn:hover, .red-btn:focus, .red-btn:active, .red-btn.active, .open .dropdown-toggle.red-btn {
+    color: white;
+    background-color: $red-dark;
+    border-color: $red-darker;
+}
 
-.red-btn:active, .red-btn.active, .open .dropdown-toggle.red-btn { 
-    background-image: none; 
-} 
+.red-btn:active, .red-btn.active, .open .dropdown-toggle.red-btn {
+    background-image: none;
+}
 
-.red-btn.disabled, .red-btn[disabled], fieldset[disabled] .red-btn, .red-btn.disabled:hover, .red-btn[disabled]:hover, fieldset[disabled] .red-btn:hover, .red-btn.disabled:focus, .red-btn[disabled]:focus, fieldset[disabled] .red-btn:focus, .red-btn.disabled:active, .red-btn[disabled]:active, fieldset[disabled] .red-btn:active, .red-btn.disabled.active, .red-btn[disabled].active, fieldset[disabled] .red-btn.active { 
-    background-color: $red; 
-    border-color: $red-darker; 
-} 
+.red-btn.disabled, .red-btn[disabled], fieldset[disabled] .red-btn, .red-btn.disabled:hover, .red-btn[disabled]:hover, fieldset[disabled] .red-btn:hover, .red-btn.disabled:focus, .red-btn[disabled]:focus, fieldset[disabled] .red-btn:focus, .red-btn.disabled:active, .red-btn[disabled]:active, fieldset[disabled] .red-btn:active, .red-btn.disabled.active, .red-btn[disabled].active, fieldset[disabled] .red-btn.active {
+    background-color: $red;
+    border-color: $red-darker;
+}
 
-.red-btn .badge { 
-    color: $red; 
-    background-color: white; 
+.red-btn .badge {
+    color: $red;
+    background-color: white;
 }
 
 /*-----------------------------------*\
@@ -156,7 +156,7 @@ header .mindup-small-screen span {
     border-color: $bgHighlight;
     .navbar-brand {
         color: $colDefault;
-        &:hover, &:focus { 
+        &:hover, &:focus {
             color: $colHighlight; }}
     .navbar-text {
         color: $colDefault; }
@@ -208,7 +208,7 @@ header .mindup-small-screen span {
     background-position: center center;
     background-size:cover;
     background-repeat: no-repeat;
-    background-color: $grey-light; 
+    background-color: $grey-light;
     height: 480px;
 }
 
@@ -413,7 +413,7 @@ header .mindup-small-screen span {
 }
 
 #social .fb-like-box, #social .twitter-timeline {
-    width: 100% !important;  
+    width: 100% !important;
 }
 
 #social .fb-like-box {
@@ -506,7 +506,7 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
 
 #review {
     background-color: $red;
-    height: 350px; //    <-- c'est à lui qu'il faut fixer la tailler !
+    // height: 350px; //    <-- c'est à lui qu'il faut fixer la tailler !
     margin-top: 25px;
 }
 
@@ -523,7 +523,7 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
     //    right:-25px;
 }
 
-#review .broun-block {  
+#review .broun-block {
     //    padding-bottom: 34px;
 }
 
