@@ -585,3 +585,20 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
     color: $red;
 }
 
+/*-----------------------------------*\
+>  Terms
+\*-----------------------------------*/
+
+#terms p {
+    font-size: 16px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+#terms p a, #terms p a:hover {
+    color: $red;
+}
+
+#terms ul li {
+    font-size: 16px;
+    font-family: Verdana, Geneva, sans-serif;
+}

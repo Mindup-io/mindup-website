@@ -116,6 +116,10 @@ function getPolicy(req, res, next) {
     res.render('policy.html');
 }
 
+function getTerms(req, res, next) {
+    res.render('terms.html');
+}
+
 function postContact(req, res, next) {
     // POST args
     var name = req.body.name,
@@ -188,6 +192,7 @@ var router = express.Router();
 router.use(logMdw);
 router.get('/', getRoot);
 router.get('/policy', getPolicy);
+router.get('/terms', getTerms);
 router.get('/download', getDownloadPage);
 router.get('/store/:platform', getStore);
 router.post('/v1/contact-msg', postContact);
