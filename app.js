@@ -15,6 +15,8 @@ var mail = require('./mail.js');
 // var mongoskin = require('mongoskin');
 var evt = require('../common/node/recEvent.js');
 var getReqIp = require('../common/node/expressHelper.js').reqIp;
+var locale = require('locale');
+var supportedLocales = ['en', 'fr'];
 
 // var API_BASEURL = 'http://api0.mindup.io';
 // var API_BASEURL = 'http://localhost:5000';
@@ -33,6 +35,8 @@ logger.info('starting MindUp public server ;)');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+app.use(locale(supportedLocales));
 
 app.use(express.static(__dirname + '/public/static'));
 app.set('views', __dirname + '/public/views');
@@ -108,8 +112,15 @@ function getStore(req, res, next) {
 function getLandingPage(req, res, next) {
     var md = new MobileDetect(req.headers['user-agent']);
 
-    res.render('landing.html', { os: md.os() });
-    evt.record('serverPublic', 'getLandingPage', { fromIp: getReqIp(req) });
+    logger.info('Locale: best match: ' + req.locale);
+
+    if (req.locale === 'fr') {
+        res.render('landing.html', { os: md.os() });
+        evt.record('serverPublic', 'getLandingPage', { fromIp: getReqIp(req) });
+    } else {
+        res.render('landing-en.html', { os: md.os() });
+        evt.record('serverPublic', 'getLandingPage', { fromIp: getReqIp(req) });
+    }
 }
 
 function getPolicy(req, res, next) {
