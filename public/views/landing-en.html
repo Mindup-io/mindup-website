@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta property="og:url" content="http://mindup.io"/>
+    <meta property="og:title" content="MindUp - Nearby anonymous instant messaging"/>
+    <meta property="og:image" content="http://mindup.io/img/mindup-logo.png"/>
+    <meta property="og:site_name" content="MindUp"/>
+    <meta property="og:description" content="Nearby instant messaging application, anonymous, massive, incoercible. MindUp allows you to anonymously share your thoughts with people around you!"/>
+    <meta property="fb:admins" content="754287449" />
+    <title>MindUp - Don't be quiet</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="img/favicon-57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/favicon-60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/favicon-72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/favicon-76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/favicon-114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/favicon-120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/favicon-144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/favicon-152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon-180.png">
+    <link rel="icon" type="image/png" sizes="192x192"  href="img/favicon-192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/favicon-96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16.png">
+    <link rel="shortcut icon" href="img/favicon-96.ico">
+    <meta name="msapplication-TileImage" content="img/favicon-144.png">
+    <link href="styles/bootstrap.min.css" rel="stylesheet">
+    <link href="styles/landing.css" rel="stylesheet">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="styles/font-awesome-4.3.0/css/font-awesome.min.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    <script type="text/javascript">
+      var shiftWindow = function() { scrollBy(0, -74) };
+      window.addEventListener("hashchange", shiftWindow);
+      function load() {
+        if (window.location.hash) shiftWindow();
+      }
+    </script>
+  </head>
+
+  <body onload="load()">
+
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-56701142-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+
+    <div id="fb-root"></div>
+    <script>
+      (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=364716317046631&version=v2.0";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+    <header>
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" id="hamburger" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/"><img alt="" src="img/hibou-128.gif" height="64" width="64"></a>
+            <ul class="nav navbar-nav mindup-large-screen hidden-xs">
+              <li class="navbar-left"><a href="/">MindUp</a></li>
+            </ul>
+            <a class="navbar-brand mindup-small-screen visible-xs" href="#"><span>MindUp</span></a>
+          </div>
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <a href="#useCase">Use case</a>
+              </li>
+              <li>
+                <a href="#download">Download</a>
+              </li>
+              <li>
+                <a href="#contact">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <section id="description">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12" style="height:480px;">
+            <h1>Anonymous. Massive. Incoercible.<br>Nearby instant messaging</h1>
+            <h2>Anonymously share your thoughts<br>with people around you!</h2>
+            <a href="#download" class="btn red-btn btn-lg bump" style="position:absolute;bottom:40px;right:20px;margin:0">Install MindUp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <h2 class="sr-only">Get Our Free App!</h2>
+      <div class="container">
+        <nav class="navbar">
+          <ul class="nav nav-pills nav-justified nav-stacked">
+            <li data-bind="visible: isAndroid">
+              <a href="/store/android">
+                <img src="img/google-en.png" width="180" height="58" alt="">
+              </a>
+            </li>
+            <li data-bind="visible: isIos">
+              <a>
+                <img src="img/apple-en.png" width="180" height="58" alt="" tabindex="0" data-toggle="popover" data-trigger="focus" title="Coming soon !" data-placement="bottom" data-content="MindUp is awaiting approval from the Apple Store, but you can sign up to be advised! Look a little further down :)">
+              </a>
+            </li>
+            <li data-bind="visible: isWindowsPhone">
+              <a>
+                <img src="img/windows-en.png" width="180" alt="" height="58" tabindex="0" data-toggle="popover" data-trigger="focus" title="Coming soon !" data-placement="bottom" data-content="MindUp is awaiting approval from the Windows Store, but you can sign up to be advised! Look a little further down :)">
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </section>
+
+    <section id="showroom">
+      <div class="container">
+        <h2 class="sr-only">Showroom</h2>
+        <div class="row">
+          <div class="col-lg-12">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="review">
+      <h2 class="sr-only">Reviews</h2>
+      <div class="carousel-reviews broun-block">
+        <div class="container">
+          <div class="row">
+            <div id="carousel-reviews" class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                <div class="item active">
+                  <div class="col-md-4 col-sm-6">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Super sympa</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>L'application est vraiment sympa et l'interface très agréable, bravo aux développeurs pour ce projet.</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-margot.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Margot Filleton</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 hidden-xs">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Awesome</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Really cool App and great idea!</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-anil.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Anil Bhovad</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Très bonne application !!</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Le concept de l'application est très bien trouvé, ce besoin d'anonymat est de plus en plus recherché ! Son graphisme reste très simple, facilitant la clarté et l'utilisation de celle-ci ! Merci et félicitations pour cette réalisation.</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-valentin.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Valentin Rippoz</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-md-4 col-sm-6">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">L'App qui nous manquait</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Une application géniale pour échanger autrement et en toute simplicité. Un grand bravo :)</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-lucile.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Lucile Guyot</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 hidden-xs">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Génial !</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Une appli bien sympa pour faire subir mes blagues pas drôles à plein d'inconnus ! ;D"  </p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-vince.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Vincent Muller</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Simple d'utilisation et intéressante</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Avec l'anonymat le concept est encore plus intéressant. Je la conseille. À utiliser sans modération !</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-mace.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Mace Windu</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                </div>
+                <div class="item">
+                  <div class="col-md-4 col-sm-6">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Une application utile et amusante</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>C'est un outil de communication qui lie pensées, informations, humour...</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-martine.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Martine Zemour</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 hidden-xs">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Super application</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Une application design et sympa pour faire de la discussion de proximité !"  </p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-florent.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Florent Pergoud</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6 hidden-sm hidden-xs">
+                    <div class="block-text rel zmin">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Beau concept</a>
+                      <div class="mark">Ma note : <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i></div>
+                      <p>Application au beau design et au concept intéressant. Je vous la conseille</p>
+                    </div>
+                    <div class="person-text rel">
+                      <img alt="" src="img/review-geert.png" height="70" width="70">
+                      <a title="" href="https://play.google.com/store/apps/details?id=io.mindup.mindup">Geert-Jan Huizing</a>
+                      <i>Android</i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="beta-testeurs">
+      <div class="container">
+        <div class="col-md-8">
+          <h2>iOS or WP user ? Be advised !</h2>
+        </div>
+        <div class="col-md-4">
+          <a href="http://eepurl.com/bgE8Of" class="btn red-btn btn-lg">Tell me when it's available!</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="useCase" class="carousel slide">
+      <h2 class="sr-only">Use case</h2>
+      <ol class="carousel-indicators">
+        <li data-target="#useCase" data-slide-to="0" class="active"></li>
+        <li data-target="#useCase" data-slide-to="1"></li>
+        <li data-target="#useCase" data-slide-to="2"></li>
+        <li data-target="#useCase" data-slide-to="3"></li>
+        <li data-target="#useCase" data-slide-to="4"></li>
+      </ol>
+      <div class="carousel-inner">
+        <div class="item active">
+          <div class="fill" style="background-image:url('img/uc1.jpg'); background-position:left top;"></div>
+          <div class="carousel-caption">
+            <h2>Diffuse your ideas</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc2.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Share your passions</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc3.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Have fun</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc4.jpg'); background-position:left top;"></div>
+          <div class="carousel-caption">
+            <h2>Get organized</h2>
+          </div>
+        </div>
+        <div class="item">
+          <div class="fill" style="background-image:url('img/uc5.jpg');"></div>
+          <div class="carousel-caption">
+            <h2>Gather yourselves</h2>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#useCase" data-slide="prev">
+        <span class="icon-prev"></span>
+      </a>
+      <a class="right carousel-control" href="#useCase" data-slide="next">
+        <span class="icon-next"></span>
+      </a>
+    </section>
+
+    <section id="social">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6" id="facebook-widget">
+            <h2>Follow us on Facebook</h2>
+            <div class=fb-border>
+              <div class="fb-like-box"
+                   data-href="https://www.facebook.com/MindUpOfficial"
+                   data-width="400"
+                   data-height="496"
+                   data-colorscheme="light"
+                   data-show-faces="true"
+                   data-header="true"
+                   data-stream="true"
+                   data-show-border="false">
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6" id="twitter-widget">
+            <h2>Follow us on Twitter</h2>
+            <a class="twitter-timeline"
+               href="https://twitter.com/MindUpOfficial?height=502"
+               data-widget-id="575310403883962368"
+               data-theme=""
+               data-show-replies="false"
+               data-link-color="#E74C3C"
+               data-related="twitterapi,twitter"
+               data-aria-polite="assertive"
+               data-border-color="#a9a9a9">
+              Si le widget ne s'est pas chargé, vous pouvez cliquer ici <i class="fa fa-twitter fa-lg"></i>
+            </a>
+            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2>Contact us</h2>
+        <form data-bind="submit: sendContactMsg" role="form">
+          <div class="form-group">
+            <label for="contact-usr" class="sr-only">Name:</label>
+            <input data-bind="value: name" type="text" class="form-control input-lg" id="contact-usr" placeholder="Name (optional)">
+          </div>
+          <div class="form-group">
+            <label for="contact-email" class="sr-only">Email:</label>
+            <input data-bind="value: email" type="email" class="form-control input-lg" id="contact-email" placeholder="Email (optional)">
+          </div>
+          <div class="form-group">
+            <label for="contact-comment" class="sr-only">Comment:</label>
+            <textarea data-bind="textInput: msg" class="form-control input-lg" rows="5" required id="contact-comment" placeholder="Your message"></textarea>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-default btn-lg red-btn">Send !</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <nav class="navbar">
+          <ul class="nav navbar-nav">
+            <li>Copyright &copy; MindUp 2014-2015</li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="https://www.facebook.com/MindUpOfficial" data-toggle="tooltip" data-placement="top" title="Suivez-nous sur Facebook !"><i class="fa fa-facebook fa-lg"></i></a></li>
+            <li><a href="https://twitter.com/MindUpOfficial" data-toggle="tooltip" data-placement="top" title="Suivez-nous sur Twitter !"><i class="fa fa-twitter fa-lg"></i></a></li>
+            <li><a href="terms">Policy</a></li>
+            <li><a href="policy">Privacy</a></li>
+            <li><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#111;&#x3a;&#99;&#111;&#x6e;&#x74;&#x61;&#x63;&#x74;&#x40;&#x6d;&#x69;&#x6e;&#x64;&#117;&#112;&#x2e;&#105;&#111;" data-toggle="tooltip" data-placement="top" title="Coucou&nbsp;:)">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/knockout-3.3.0.js"></script>
+    <script type="text/javascript">
+      $(function() {
+        /************************************************************************
+        * Contact form
+        ************************************************************************/
+
+        function ajaxPost(url, data, cb) {
+          $.ajax({
+            type: "POST",
+            url: url,
+            data: data,
+            contentType: 'application/json;charset=UTF-8',
+            success: function (response) {
+              cb(null, response);
+            },
+            error: function (response) {
+              log.error('[serverManager] Unable to get the page: ' + url);
+              cb(response);
+            }
+          });
+        }
+
+        function ContactMsgViewModel() {
+          var self = this;
+
+          self.name = ko.observable();
+          self.email = ko.observable();
+          self.msg = ko.observable();
+
+          self.isValid = function () {
+            return self.msg().length;
+          }
+
+          /* contact msg from */
+          self.sendContactMsg = function () {
+            console.log(ko.toJSON(self, null, '\t'));
+
+            if (self.isValid()) {
+              ajaxPost('/v1/contact-msg', ko.toJSON(self, null, '\t'), function (err, rsp) {
+                if (err) {
+                  return console.log('Can\'t send message: ' + err);
+                }
+                console.log('Message sent.');
+              });
+
+              self.clearFrom();
+            }
+          }
+
+          self.clearFrom = function () {
+            self.name('');
+            self.email('');
+            self.msg('');
+          }
+        }
+        ko.applyBindings(new ContactMsgViewModel(), document.getElementById("contact"));
+
+        /************************************************************************
+        * Download buttons
+        ************************************************************************/
+
+        function LandingViewModel() {
+          var self = this;
+          self.userOs = '<%= os %>';
+
+          self.isOtherMobileOrNavigator = function () {
+            return self.userOs === 'null' ||
+              (self.userOs !== 'AndroidOS' &&
+               self.userOs !== 'iOS'       &&
+               self.userOs.substr(0, 7) !== 'Windows')
+          };
+
+          // If is android, navigator or other mobile.
+          self.isAndroid = ko.computed(function () {
+            return self.userOs === 'AndroidOS' ||
+              self.isOtherMobileOrNavigator();
+          });
+
+          // If is ios, navigator or other mobile.
+          self.isIos = ko.computed(function () {
+            return self.userOs === 'iOS'  ||
+              self.isOtherMobileOrNavigator();
+          });
+
+          // If is windowsPhone, navigator or other mobile.
+          self.isWindowsPhone = ko.computed(function () {
+            return self.userOs === 'WindowsMobileOS' ||
+              self.userOs === 'WindowsPhoneOS'  ||
+              self.isOtherMobileOrNavigator();
+          });
+        }
+        ko.applyBindings(new LandingViewModel(), document.getElementById("download"));
+
+        /************************************************************************
+        * Bootstrap carousel
+        ************************************************************************/
+
+        // Normalize Carousel Heights - pass in Bootstrap Carousel items.
+        $.fn.carouselHeights = function() {
+
+          var items = $(this), //grab all slides
+              heights = [], //create empty array to store height values
+              i = 1;
+
+          var normalizeHeights = function() {
+
+            items.each(function() { //add heights to array
+              $(this).children().each(function () {
+                heights.push($(this).height() + window.carouselBottom);
+              });
+            });
+            heights.push(window.tallestCarousel || 0);
+            window.tallestCarousel = Math.max.apply(null, heights); //cache largest value
+            items.css('min-height', window.tallestCarousel + 'px');
+          };
+
+          normalizeHeights();
+
+          $(window).on('resize orientationchange', function () {
+            //reset vars
+            heights.length = 0;
+            window.tallestCarousel = 0;
+
+            items.css('min-height', 0);
+            normalizeHeights(); //run it again
+          });
+        };
+
+        $('.carousel').carousel({
+          interval: 4000
+        });
+        window.carouselBottom = 20;
+
+        $('#review .carousel .item').carouselHeights();
+
+        // To resize correctly if the window is resized.
+        $('.carousel').on('slide.bs.carousel', function () {
+          $('#review .carousel .item').carouselHeights();
+        });
+
+        /************************************************************************
+        * Misc
+        ************************************************************************/
+
+        $(document).on('click','.navbar-collapse.in',function(e) {
+          if( $(e.target).is('a') && $(e.target).attr('class') != 'dropdown-toggle' ) {
+            $(this).collapse('hide');
+          }
+        });
+
+        $('.navbar-nav a').click(function(e) {
+          var dest = $(this).attr('href');
+          if (dest === window.location.hash) e.preventDefault();
+        });
+
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip()
+        })
+
+        $(function () {
+          $('[data-toggle="popover"]').popover()
+        })
+
+        /************************************************************************
+        * FB
+        ************************************************************************/
+
+        $('.fb-like-box').attr('data-width', $('#facebook-widget').width());
+
+        $(window).resize(function(){
+          console.log('resize');
+
+          var newSize = $('#facebook-widget').width();
+          $('.fb-like-box').attr('data-width', newSize);
+
+          $('.fb-like-box iframe').attr('src', function(i, val) {
+            return val.replace(/&container_width=\d+/, '&container_width=' + (newSize - 2))
+            .replace(/&width=\d+/, '&width=' + newSize);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
