@@ -131,6 +131,17 @@ function getTerms(req, res, next) {
     res.render('terms.html');
 }
 
+function getGame(req, res, next) {
+    res.render('jeu.html');
+    
+    evt.record(
+        'serverPublic', 'getGame',
+        {
+            fromIp: getReqIp(req)
+        }
+    );
+}
+
 function postContact(req, res, next) {
     // POST args
     var name = req.body.name,
@@ -207,6 +218,7 @@ router.get('/terms', getTerms);
 router.get('/download', getDownloadPage);
 router.get('/store/:platform', getStore);
 router.post('/v1/contact-msg', postContact);
+router.get('/jeu', getGame);
 router.use(basicErrorHandler);
 router.get('*', handleError404);
 router.post('*', handleError404);
