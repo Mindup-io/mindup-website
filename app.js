@@ -39,6 +39,7 @@ app.use(bodyParser.json());
 app.use(locale(supportedLocales));
 
 app.use(express.static(__dirname + '/public/static'));
+app.use(express.static(__dirname + '/../ressources'));
 app.set('views', __dirname + '/public/views');
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'ejs');
@@ -133,7 +134,7 @@ function getTerms(req, res, next) {
 
 function getGame(req, res, next) {
     res.render('jeu.html');
-    
+
     evt.record(
         'serverPublic', 'getGame',
         {
