@@ -602,3 +602,35 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
     font-size: 16px;
     font-family: Verdana, Geneva, sans-serif;
 }
+
+/*-----------------------------------*\
+>  Press
+\*-----------------------------------*/
+
+#press h1 {
+    text-align: center;
+}
+
+#press p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#press article {
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 50px;
+}
+
+#press article img {
+    text-align: center;
+}
+
+#press article a {
+    color: $blue;
+}
+
+#press article a:hover {
+    color: $red;
+}

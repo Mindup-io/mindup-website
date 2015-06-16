@@ -142,6 +142,10 @@ function getGame(req, res, next) {
     );
 }
 
+function getPress(req, res, next) {
+    res.render('press.html');
+}
+
 function postContact(req, res, next) {
     // POST args
     var name = req.body.name,
@@ -219,6 +223,7 @@ router.get('/download', getDownloadPage);
 router.get('/store/:platform', getStore);
 router.post('/v1/contact-msg', postContact);
 router.get('/jeu', getGame);
+router.get('/press', getPress);
 router.use(basicErrorHandler);
 router.get('*', handleError404);
 router.post('*', handleError404);
