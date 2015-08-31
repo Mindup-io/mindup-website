@@ -609,6 +609,23 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
 
 #press h1 {
     text-align: center;
+    text-transform: uppercase;
+}
+
+#press h2 {
+    border-bottom-style: dotted;
+    border-bottom-color: $grey;
+    border-bottom-width:1px;
+}
+
+#press h3 {
+    font-size:18px;
+    font-weight:bold
+}
+
+#press p {
+    font-family: Verdana, Geneva, sans-serif;
+    text-align:justify;
 }
 
 #press p img {
@@ -633,4 +650,65 @@ footer .navbar-nav li a:hover, footer .navbar-nav li a:active, footer .navbar-na
 
 #press article a:hover {
     color: $red;
+}
+
+#press #revision {
+    font-size:12px;
+    color:$grey;
+    text-align:right;
+}
+
+#press #pdf-release {
+    text-align:center;
+    margin-bottom:40px;
+    margin-top: 30px;
+}
+
+#press #pdf-release span {
+    background-color:$blue;
+    padding:20px;
+    color:white;
+}
+
+#press #screenshots {
+    text-align:center;
+    margin-top:20px;
+}
+
+#press #screenshots img {
+    margin-bottom:20px;
+    margin-left:10px;
+    margin-right:10px;
+}
+
+#press ul {
+    font-family: Verdana, Geneva, sans-serif;
+    margin-bottom:30px;
+}
+
+#press #contact-press {
+    text-align: center;
+}
+
+#press #contact-press div {
+    display: inline-block;
+    margin-top: 20px;
+    background-color: $blue;
+    padding: 20px 40px;
+    color: white;
+}
+
+#press #contact-press p:first-of-type {
+    text-transform: uppercase;
+    padding-bottom:10px;
+}
+
+#press #contact-press p {
+    margin:0;
+    padding-top:5px;
+    text-align:center;
+}
+
+#press #contact-press a {
+    color:white
 }
