@@ -65,11 +65,13 @@ function getRoot(req, res, next) {
 
     logger.info('host: ' + host);
 
-    if (host === 'app.mindup.io' && md.os() === 'AndroidOS') {
-        getDownloadPage(req, res, next);
-    } else {
-        getLandingPage(req, res, next);
-    }
+    getLandingPage(req, res, next);
+
+    // if (host === 'app.mindup.io' && md.os() === 'AndroidOS') {
+    //     getDownloadPage(req, res, next);
+    // } else {
+    //     getLandingPage(req, res, next);
+    // }
 }
 
 // TODO: maybe deprecated
